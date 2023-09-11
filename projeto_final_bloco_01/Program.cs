@@ -17,7 +17,10 @@ namespace projeto_final_bloco_01
             LivroController livros = new();
             LivroFisico lf1 = new LivroFisico(livros.GerarNumero(), "O menino do pijama listrado", "Cia das Letras", "Espanhol", 2, 25, 300, 10);
             livros.CadastrarLivro(lf1);
-            lf1.Visualizar();
+
+            Ebook e1 = new Ebook(livros.GerarNumero(), "Montros SA", "Fábrica de cultura", "Português", 4, 10, "pdf", 4560);
+            livros.CadastrarLivro(e1);
+
 
             menu =
                 "\n -------------------------------------" +
