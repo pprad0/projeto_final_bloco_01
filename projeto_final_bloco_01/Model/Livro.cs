@@ -3,17 +3,22 @@
     public abstract class Livro
     {
         private string titulo, editora, idioma;
-        private int edicao;
+        private int id, edicao;
         private decimal preco;
 
-        public Livro(string titulo, string editora, string idioma, int edicao, decimal preco)
+        public Livro(int id, string titulo, string editora, string idioma, int edicao, decimal preco)
         {
+            this.id = id;
             this.titulo = titulo;
             this.editora = editora;
             this.idioma = idioma;
             this.edicao = edicao;
             this.preco = preco;
         }
+
+
+        public int GetId() { return id; }
+        public void SetId(int id) { this.id = id; }
 
         public string GetTitulo() { return titulo; }
         public void SetTitulo(string titulo) { this.titulo = titulo; }
@@ -35,6 +40,7 @@
             Console.WriteLine("\n\n--------------------------------------");
             Console.WriteLine("\n\t Dados do livro");
             Console.WriteLine("\n--------------------------------------");
+            Console.WriteLine($" Id: {this.id}");
             Console.WriteLine($" Título: {this.titulo}");
             Console.WriteLine($" Editora: {this.editora}");
             Console.WriteLine($" Idioma: {this.idioma}");

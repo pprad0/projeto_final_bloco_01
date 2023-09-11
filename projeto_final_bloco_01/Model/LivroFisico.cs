@@ -5,8 +5,8 @@
         private int peso;
         private decimal frete;
 
-        public LivroFisico(string titulo, string editora, string idioma, int edicao, decimal preco, int peso, decimal frete)
-            : base(titulo, editora, idioma, edicao, preco)
+        public LivroFisico(int id, string titulo, string editora, string idioma, int edicao, decimal preco, int peso, decimal frete)
+            : base(id, titulo, editora, idioma, edicao, preco)
         {
             this.peso = peso;
             this.frete = frete;

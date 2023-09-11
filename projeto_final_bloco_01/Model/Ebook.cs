@@ -5,8 +5,8 @@
         private string formato;
         private int tamanhoEmMB;
 
-        public Ebook(string titulo, string editora, string idioma, int edicao, decimal preco, string formato, int tamanhoEmMB)
-            : base(titulo, editora, idioma, edicao, preco)
+        public Ebook(int id, string titulo, string editora, string idioma, int edicao, decimal preco, string formato, int tamanhoEmMB)
+            : base(id, titulo, editora, idioma, edicao, preco)
         {
             this.tamanhoEmMB = tamanhoEmMB;
             this.formato = formato;
