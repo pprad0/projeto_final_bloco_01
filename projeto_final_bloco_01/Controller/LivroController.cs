@@ -13,7 +13,7 @@ namespace projeto_final_bloco_01.Controller
         {
             listaLivros.Add(livro);
 
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($" O livro com Id {livro.GetId()} foi criado com sucesso!");
             Console.ResetColor();
         }
@@ -47,7 +47,7 @@ namespace projeto_final_bloco_01.Controller
             }
         }
 
-        public void AtualizarLivro(Livro livro) // --
+        public void AtualizarLivro(Livro livro) // ok
         {
             var buscaLivro = BuscarNaCollection(livro.GetId());
 
@@ -64,7 +64,7 @@ namespace projeto_final_bloco_01.Controller
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($" O livro de Id {id} não foi encontrado!");
+                Console.WriteLine($" Este id não foi encontrado!");
                 Console.ResetColor();
             }
         }

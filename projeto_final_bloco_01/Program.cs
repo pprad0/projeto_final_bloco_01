@@ -54,43 +54,55 @@ namespace projeto_final_bloco_01
                         Console.WriteLine("\n Qual o Idioma do livro? ");
                         idioma = Console.ReadLine()!;
 
-                        Console.WriteLine("\n Qual a Edição do livro? (Insira apenas números)  ");
-                        edicao = Convert.ToInt32(Console.ReadLine());
-
-                        Console.WriteLine("\n Qual o preço do livro? ");
-                        preco = Convert.ToDecimal(Console.ReadLine());
-
-                        Console.WriteLine("\nQual o tipo de livro ?\n 1 - Ebook\n 2 - Livro físico");
-                        tipo = Convert.ToInt32(Console.ReadLine());
-
-                        //método cadastrar
-                        if (tipo == 1)
+                        try
                         {
-                            Console.WriteLine("\n Qual o formato do livro?");
-                            formato = Console.ReadLine()!;
 
-                            Console.WriteLine("\n Qual o tamanho do livro em GB?");
-                            tamanhoEmMB = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("\n Qual a Edição do livro? (Insira apenas números)  ");
+                            edicao = Convert.ToInt32(Console.ReadLine());
 
-                            livros.CadastrarLivro(new Ebook(livros.GerarNumero(), titulo, editora, idioma, edicao, preco, formato, tamanhoEmMB));
+                            Console.WriteLine("\n Qual o preço do livro? ");
+                            preco = Convert.ToDecimal(Console.ReadLine());
+
+                            Console.WriteLine("\nQual o tipo de livro ?\n 1 - Ebook\n 2 - Livro físico");
+                            tipo = Convert.ToInt32(Console.ReadLine());
+
+
+                            //método cadastrar
+
+                            if (tipo == 1)
+                            {
+                                Console.WriteLine("\n Qual o formato do livro?");
+                                formato = Console.ReadLine()!;
+
+                                Console.WriteLine("\n Qual o tamanho do livro em GB?");
+                                tamanhoEmMB = Convert.ToInt32(Console.ReadLine());
+
+                                livros.CadastrarLivro(new Ebook(livros.GerarNumero(), titulo, editora, idioma, edicao, preco, formato, tamanhoEmMB));
+                            }
+
+                            else if (tipo == 2)
+                            {
+                                Console.WriteLine("\n Qual o peso do livro?");
+                                peso = Convert.ToInt32(Console.ReadLine());
+
+                                Console.WriteLine("\n Quanto é o frete do livro?");
+                                frete = Convert.ToDecimal(Console.ReadLine());
+
+                                livros.CadastrarLivro(new LivroFisico(livros.GerarNumero(), titulo, editora, idioma, edicao, preco, peso, frete));
+                            }
+                            else
+                            {
+                                Console.WriteLine("\n Erro: o tipo digitado não existe.");
+                            }
+
                         }
-
-                        else if (tipo == 2)
+                        catch (FormatException)
                         {
-                            Console.WriteLine("\n Qual o peso do livro?");
-                            peso = Convert.ToInt32(Console.ReadLine());
-
-                            Console.WriteLine("\n Quanto é o frete do livro?");
-                            frete = Convert.ToDecimal(Console.ReadLine());
-
-                            livros.CadastrarLivro(new LivroFisico(livros.GerarNumero(), titulo, editora, idioma, edicao, preco, peso, frete));
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine(" Erro: Digite apenas números.");
+                            Console.ResetColor();
+                            tipo = 0;
                         }
-                        else
-                        {
-                            Console.WriteLine("\n Erro: o tipo digitado não existe.");
-                        }
-
-
                         break;
 
                     case 2:
@@ -127,42 +139,51 @@ namespace projeto_final_bloco_01
                         Console.WriteLine("\n Qual o Idioma do livro? ");
                         idioma = Console.ReadLine()!;
 
-                        Console.WriteLine("\n Qual a Edição do livro? (Insira apenas números)  ");
-                        edicao = Convert.ToInt32(Console.ReadLine());
-
-                        Console.WriteLine("\n Qual o preço do livro? ");
-                        preco = Convert.ToDecimal(Console.ReadLine());
-
-                        Console.WriteLine("\nQual o tipo de livro ?\n 1 - Ebook\n 2 - Livro físico");
-                        tipo = Convert.ToInt32(Console.ReadLine());
-
-                        //método atualizar
-                        if (tipo == 1)
+                        try
                         {
-                            Console.WriteLine("\n Qual o formato do livro?");
-                            formato = Console.ReadLine()!;
+                            Console.WriteLine("\n Qual a Edição do livro? (Insira apenas números)  ");
+                            edicao = Convert.ToInt32(Console.ReadLine());
 
-                            Console.WriteLine("\n Qual o tamanho do livro em GB?");
-                            tamanhoEmMB = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("\n Qual o preço do livro? ");
+                            preco = Convert.ToDecimal(Console.ReadLine());
 
-                            livros.AtualizarLivro(new Ebook(id, titulo, editora, idioma, edicao, preco, formato, tamanhoEmMB));
+                            Console.WriteLine("\nQual o tipo de livro ?\n 1 - Ebook\n 2 - Livro físico");
+                            tipo = Convert.ToInt32(Console.ReadLine());
+
+                            //método atualizar
+                            if (tipo == 1)
+                            {
+                                Console.WriteLine("\n Qual o formato do livro?");
+                                formato = Console.ReadLine()!;
+
+                                Console.WriteLine("\n Qual o tamanho do livro em GB?");
+                                tamanhoEmMB = Convert.ToInt32(Console.ReadLine());
+
+                                livros.AtualizarLivro(new Ebook(id, titulo, editora, idioma, edicao, preco, formato, tamanhoEmMB));
+                            }
+
+                            else if (tipo == 2)
+                            {
+                                Console.WriteLine("\n Qual o peso do livro?");
+                                peso = Convert.ToInt32(Console.ReadLine());
+
+                                Console.WriteLine("\n Quanto é o frete do livro?");
+                                frete = Convert.ToDecimal(Console.ReadLine());
+
+                                livros.AtualizarLivro(new LivroFisico(id, titulo, editora, idioma, edicao, preco, peso, frete));
+                            }
+                            else
+                            {
+                                Console.WriteLine("\n Erro: o tipo digitado não existe.");
+                            }
                         }
-
-                        else if (tipo == 2)
+                        catch
                         {
-                            Console.WriteLine("\n Qual o peso do livro?");
-                            peso = Convert.ToInt32(Console.ReadLine());
-
-                            Console.WriteLine("\n Quanto é o frete do livro?");
-                            frete = Convert.ToDecimal(Console.ReadLine());
-
-                            livros.AtualizarLivro(new LivroFisico(id, titulo, editora, idioma, edicao, preco, peso, frete));
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine(" Erro: Digite apenas números.");
+                            Console.ResetColor();
+                            tipo = 0;
                         }
-                        else
-                        {
-                            Console.WriteLine("\n Erro: o tipo digitado não existe.");
-                        }
-
 
                         break;
 
